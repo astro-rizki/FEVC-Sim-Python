@@ -6,7 +6,7 @@ GENSET_MAX_POWER = 24 # kW
 
 # Define Variables
 pPhotoVoltaic = 0
-pGenSet = 0
+gensetIsOn = False
 pBuilding = 0
 pEV = 0
 pBattery = 0
@@ -21,44 +21,78 @@ pvExcess = pPhotoVoltaic - load
 
 if(pvExcess>0):
     if(socBatt == BATT_MAX_CAPACITY):
-        # send Power to grid
-        print("no charging battery")
-        print("send to grid " + str(pvExcess)+ " kW")
+        # use pv, send excess to grid
+        print("battery is full...")
+        print("using photvoltaic power " + str(pPhotoVoltaic) + " kW")
+        print("sending excess to grid " + str(pvExcess)+ " kW")
     else:
-        # charge battery
+        # use pv, charge battery
         battPowerNeeded = BATT_MAX_CAPACITY - socBatt
-        print("charging battery")
+        print("charging battery....")
         print("current battery soc : " + str(socBatt))
         if(pvExcess > battPowerNeeded):
             if(battPowerNeeded > BATT_POWER_RATE):
                 socBatt = socBatt + BATT_POWER_RATE
-                print("adding "+str(BATT_POWER_RATE)+" to battery and send excess "+str(battPowerNeeded-BATT_POWER_RATE)+" to Grid")
+                print("adding "+str(BATT_POWER_RATE)+" to battery")
+                print("send excess "+str(battPowerNeeded-BATT_POWER_RATE)+" to Grid")
             else:
                 socBatt = socBatt + battPowerNeeded
-                print("adding "+str(battPowerNeeded)+" to battery and send excess "+str(pvExcess-battPowerNeeded)+" to Grid")
+                print("adding "+str(battPowerNeeded)+" to battery") 
+                print("send excess "+str(pvExcess-battPowerNeeded)+" to Grid")
         else:
             if(pvExcess >= BATT_POWER_RATE):
                 socBatt = socBatt + BATT_POWER_RATE
-                print("adding "+str(BATT_POWER_RATE)+" to battery and send excess "+str(battPowerNeeded-BATT_POWER_RATE)+" to Grid")
+                print("adding "+str(BATT_POWER_RATE)+" to battery")
+                print("send excess "+str(battPowerNeeded-BATT_POWER_RATE)+" to Grid")
             else:
                 socBatt = socBatt + pvExcess
-                print("adding "+str(pvExcess)+" to battery and send excess "+str(0)+" to Grid")
+                print("adding "+str(pvExcess)+" to battery")
+                print("no excess sent to Grid")
 
 elif(pvExcess==0):
-    print("using photvoltaic poer " + str(pPhotoVoltaic) + " kW")
+    # use pv only
+    print("using photvoltaic power " + str(pPhotoVoltaic) + " kW")
 
 else:
+    # use pv and ...
+    print("using photvoltaic power " + str(pPhotoVoltaic) + " kW")
     if(gridAvailable):
-        print("using photvoltaic poer " + str(pPhotoVoltaic) + " kW and using Grid power also")
+        # use grid
+        print("grid available, using Grid power also")
     else:
-        if(socBatt > BATT_MIN_CAPACITY):
+        powerNeeded = load - pPhotoVoltaic
+        battPower = socBatt-BATT_MIN_CAPACITY
+        battOutput = BATT_POWER_RATE
+
+        if battPower < BATT_POWER_RATE:
+            battOutput=battPower 
+
+        if(battPower > 0):
             # discharge battery
-            print("discharging battery")
             print("current battery soc : " + str(socBatt))
-            if(socBatt > BATT_POWER_RATE):
-                print("releasing "+str(BATT_POWER_RATE)+" from battery")
+            if(powerNeeded > battOutput+GENSET_MAX_POWER):
+                # system failure
+                print("BLACKOUT, shortage by "+str(powerNeeded-(battOutput+GENSET_MAX_POWER))+" kW")
+            elif(powerNeeded <= battOutput):
+                # using battery only
+                print("discharging battery...")
+                print("releasing "+str(powerNeeded)+" kW from battery")
+                socBatt = socBatt - battOutput
+            else:
+                # using battery and genset
+                print("discharging battery...")
+                print("releasing "+str(battOutput)+" kW from battery")
+                print("releasing "+str(powerNeeded - battOutput)+" kW from GenSet")
+                socBatt = socBatt - battOutput
+                gensetIsOn = True
         else:
-            print()
+            if(powerNeeded<=GENSET_MAX_POWER):
+                # use genset only
+                gensetIsOn = True
+                print("using Genset "+str(powerNeeded)+" kW")
+            else:
+                # system failure
+                print("BLACKOUT, shortage by "+str(powerNeeded-GENSET_MAX_POWER)+" kW")
         
             
 
