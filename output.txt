@@ -1,0 +1,209 @@
+============================
+time : 00:00:00
+grid unavailable
+using photvoltaic power 0.0 kW   
+current battery soc : 67.5       
+discharging battery...
+releasing 1.61272 kW from battery
+============================     
+
+============================
+time : 01:00:00
+grid unavailable
+using photvoltaic power 0.0 kW
+current battery soc : 65.88728
+discharging battery...
+releasing 1.45145 kW from battery
+============================
+
+============================
+time : 02:00:00
+grid unavailable
+using photvoltaic power 0.0 kW
+current battery soc : 64.43583000000001
+discharging battery...
+releasing 1.86359 kW from battery
+============================
+
+============================
+time : 03:00:00
+grid unavailable
+using photvoltaic power 0.0 kW
+current battery soc : 62.57224000000001
+discharging battery...
+releasing 1.41561 kW from battery
+============================
+
+============================
+time : 04:00:00
+grid unavailable
+using photvoltaic power 0.0 kW
+current battery soc : 61.15663000000001
+discharging battery...
+releasing 1.73816 kW from battery
+============================
+
+============================
+time : 05:00:00
+grid unavailable
+charging battery....
+current battery soc : 59.418470000000006
+adding 8.081529999999994 to battery
+send excess 1.2859300000000058 to Grid
+============================
+
+============================
+time : 06:00:00
+grid unavailable
+battery is full...
+using photvoltaic power 18.3275 kW
+sending excess to grid 11.87661 kW
+============================
+
+============================
+time : 07:00:00
+grid unavailable
+battery is full...
+using photvoltaic power 37.715199999999996 kW
+sending excess to grid 7.250429999999994 kW
+============================
+
+============================
+time : 08:00:00
+grid unavailable
+using photvoltaic power 5.5729 kW
+current battery soc : 67.5
+BLACKOUT, shortage by 37.54043 kW
+============================
+
+============================
+time : 09:00:00
+grid unavailable
+using photvoltaic power 69.4225 kW
+current battery soc : 67.5
+discharging battery...
+releasing 25 kW from battery
+releasing 10.049210000000002 kW from GenSet
+============================
+
+============================
+time : 10:00:00
+grid unavailable
+charging battery....
+current battery soc : 42.5
+adding 25.0 to battery
+send excess 11.200059999999993 to Grid
+============================
+
+============================
+time : 11:00:00
+grid unavailable
+using photvoltaic power 8.1262 kW
+current battery soc : 67.5
+discharging battery...
+releasing 6.56748 kW from battery
+============================
+
+============================
+time : 12:00:00
+grid unavailable
+charging battery....
+current battery soc : 60.93252
+adding 6.567480000000003 to battery
+send excess 57.660279999999986 to Grid
+============================
+
+============================
+time : 13:00:00
+grid unavailable
+using photvoltaic power 69.1229 kW
+current battery soc : 67.5
+BLACKOUT, shortage by 1.67483 kW
+============================
+
+============================
+time : 14:00:00
+grid unavailable
+battery is full...
+using photvoltaic power 55.1942 kW
+sending excess to grid 12.840980000000002 kW
+============================
+
+============================
+time : 15:00:00
+grid unavailable
+battery is full...
+using photvoltaic power 37.2447 kW
+sending excess to grid 24.48628 kW
+============================
+
+============================
+time : 16:00:00
+grid unavailable
+battery is full...
+using photvoltaic power 17.4852 kW
+sending excess to grid 9.67246 kW
+============================
+
+============================
+time : 17:00:00
+grid unavailable
+using photvoltaic power 0.0767362 kW
+current battery soc : 67.5
+discharging battery...
+releasing 5.4244338 kW from battery
+============================
+
+============================
+time : 18:00:00
+grid unavailable
+using photvoltaic power 0.0 kW
+current battery soc : 62.0755662
+discharging battery...
+releasing 6.52256 kW from battery
+============================
+
+============================
+time : 19:00:00
+grid unavailable
+using photvoltaic power 0.0 kW
+current battery soc : 55.5530062
+discharging battery...
+releasing 6.12834 kW from battery
+============================
+
+============================
+time : 20:00:00
+grid unavailable
+using photvoltaic power 0.0 kW
+current battery soc : 49.4246662
+discharging battery...
+releasing 5.35782 kW from battery
+============================
+
+============================
+time : 21:00:00
+grid unavailable
+using photvoltaic power 0.0 kW
+current battery soc : 44.0668462
+discharging battery...
+releasing 5.96707 kW from battery
+============================
+
+============================
+time : 22:00:00
+grid unavailable
+using photvoltaic power 0.0 kW
+current battery soc : 38.0997762
+discharging battery...
+releasing 4.26475 kW from battery
+============================
+
+============================
+time : 23:00:00
+grid unavailable
+using photvoltaic power 0.0 kW
+current battery soc : 33.8350262
+discharging battery...
+releasing 2.54452 kW from battery
+============================
